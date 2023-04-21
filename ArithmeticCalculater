@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdbool.h>
+int type = 8; //2진수, 8진수, 16진수 등
+int arithmetic[] = { 2,8,2 };
+int multiple(num, times) {
+	int result = num;
+	for (int i = 0; i < times; i++) {
+		result *= type;
+	}
+	return (times == 0) ? 1 * num : result;
+}
+int main() {
+	int decimal = 0;
+	int arrSize = sizeof(arithmetic) / sizeof(int);
+
+	for (int i = 0; i < arrSize; i++) {
+		decimal += multiple(arithmetic[i], arrSize-1-i);
+	}
+
+	printf("%d", decimal);
+	return 0;
+}
